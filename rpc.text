@@ -1,0 +1,137 @@
+--factorial--
+
+-fac.x-
+struct fac{
+	int a;
+	};
+program facpro{
+version facver{
+	int factorial(fac)=1;
+	}=2;
+	}=0x2fffffff;
+
+-fac_server-
+static int fac=1, i;
+	
+	for(i=1;i<= argp->a ;i++){
+		fac=fac*i;
+		}
+		result = fac;
+
+-fac_client-
+printf("enter number= ");
+	scanf("%d",&factorial_2_arg.a);
+-------------------------------	
+else{
+	printf("%d",*result_1);
+	}
+	
+--cal--
+-cal.x-
+
+struct cal{
+int a;
+int b;
+int c;
+};
+program calpro{
+version calver{
+	int calculate(cal)=1;
+	}=2;
+}=0x2fffffff;	
+
+-cal_server-
+
+if(argp->c > 4){
+	result = 0;
+	}
+	else if(argp->c == 1){
+	result=argp->a + argp->b ;
+	}
+	else if(argp->c == 2){
+	result=argp->a - argp->b ;
+	}
+	else if(argp->c == 3){
+	result=argp->a * argp->b ;
+	}
+	else if(argp->c == 4){
+	result=argp->a / argp->b ;
+	}
+
+-cal_client-
+
+printf("\n 1.SUM \n 2.SUB \n 3.MULTI \n 4.DIVIDE");
+	printf("\nchoose number you want to calculate =");
+	scanf("%d", &calculate_2_arg.c);
+	
+	printf("enter first number =");
+	scanf("%d", &calculate_2_arg.a);
+	
+	printf("enter second number =");
+	scanf("%d", &calculate_2_arg.b);
+------------------------------------
+else{
+	
+	printf("Answer = %d \n" ,*result_1);
+	}
+
+--reverse--
+-revers.x-
+struct revers{
+int a;
+
+};
+program reverspro{
+version reversver{
+	int reversing(revers)=1;
+	}=2;
+}=0x2fffffff;
+
+-revers_clint-
+
+printf("Enter number =");
+scanf("%d",&reversing_2_arg.a);
+---------------------------
+else{
+printf("Reves number= %d",*result_1);
+}
+
+-revers_server-
+
+int m=argp->a;
+	int rev=0;
+	int rem;
+
+	while(m>0){
+	rem = m%10;
+	rev = (rev*10)+rem;
+	m   =m/10;
+	}
+	result=rev;	
+
+compile
+rpcgen -aC hello.x
+makefile -f Makefile.hello
+sudo ./hello_server
+sudo ./hello_client
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
